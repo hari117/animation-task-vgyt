@@ -1,3 +1,4 @@
+import 'package:animationtask/animation_state_mangemet.dart';
 import 'package:animationtask/main.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-
+  AnimationStateManagement animationStateManagement =
+      AnimationStateManagement.instance;
   double opacValue=0;
 
   @override
@@ -126,7 +128,7 @@ class _DetailPageState extends State<DetailPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pop(context);
-          backToMainPageAnimation(350.0,200.0,Curves.bounceInOut);
+          animationStateManagement.stateAnimationPage(350,200);
         },
         elevation: 0,
         backgroundColor: Colors.white,

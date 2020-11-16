@@ -1,34 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
+class AnimationStateManagement extends StatesRebuilder {
+  static AnimationStateManagement instance = AnimationStateManagement();
+  double normalWidth=350.0;
+  double normalHeight=200.0;
 
-class AnimationStateManagement extends StatesRebuilder
-{
+  Curve normalCurve=Curves.easeIn;
 
-  static AnimationStateManagement instance=AnimationStateManagement();
-  double normalWidth;
-  double normalHeight;
-
-  double animationWidth;
-  double animationHeight;
-  Curve normalCurve;
-  Curve animatedCurve;
-
-  stateAnimationPage()
-  {
-rebuildStates();
+  stateAnimationPage(double w, double h) {
+    normalWidth = w;
+    normalHeight = h;
+    rebuildStates();
   }
 
-  endAnimationPage()
-  {
-rebuildStates();
-
-
-
+  endAnimationPage() {
+    rebuildStates();
   }
-
-
-
-
-
 }
