@@ -1,5 +1,4 @@
-import 'package:animationtask/animation_state_mangemet.dart';
-import 'package:animationtask/detail_page.dart';
+import 'package:animationtask/listview_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
@@ -11,7 +10,7 @@ class animTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: ListViewAnimation(),
     );
   }
 }
@@ -22,8 +21,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  AnimationStateManagement animationStateManagement =
-      AnimationStateManagement.instance;
+  // AnimationStateManagement animationStateManagement =
+  //     AnimationStateManagement.instance;
 
   double animationWidth = 350.0;
   double animationHeight = 200.0;
@@ -61,16 +60,6 @@ class _HomePageState extends State<HomePage> {
               );
             }),
       ),
-      // floatingActionButton: FloatingActionButton(
-      // child: Icon(Icons.add),
-      // onPressed: () {
-      // setState(() {
-      // animationWidth = 350.0;
-      // animationHeight = 200.0;
-      // changeCurve = Curves.easeInOutBack;
-      // });
-      // },
-      // )
     );
   }
 
@@ -82,11 +71,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-// containerAnimationPerform(double w,double h) {
-//   setState(() {
-//     animationWidth = 330.0;
-//     animationHeight = 180.0;
-//   });
-// }
+  
 
 }

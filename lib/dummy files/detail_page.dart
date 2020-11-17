@@ -1,15 +1,21 @@
-import 'package:animationtask/animation_state_mangemet.dart';
+import 'package:animationtask/another%20anim/animation_state_mangemet.dart';
 import 'package:animationtask/main.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
+  Function callBack;
+  int  heroKey;
+  String imgUrl;
+
+  DetailPage({this.callBack,this.heroKey,this.imgUrl});
+
   @override
   _DetailPageState createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
-  AnimationStateManagement animationStateManagement =
-      AnimationStateManagement.instance;
+  // AnimationStateManagement animationStateManagement =
+  //     AnimationStateManagement.instance;
   double opacValue=0;
 
   @override
@@ -38,11 +44,11 @@ class _DetailPageState extends State<DetailPage> {
           child: Column(
             children: [
               Hero(
-                tag: "1",
+                tag: widget.heroKey,
                 child: Image(
                     width: double.infinity,
                     height: 300,
-                    image: AssetImage("assets/images/ACV.jpeg"),
+                    image: AssetImage(widget.imgUrl),
                     fit: BoxFit.cover),
               ),
               SizedBox(
@@ -128,7 +134,10 @@ class _DetailPageState extends State<DetailPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pop(context);
-          animationStateManagement.stateAnimationPage(350,200);
+          print("navigator pop finished");
+          widget.callBack(1);
+          print("calledback finsihed");
+       //   animationStateManagement.stateAnimationPage(350,200);
         },
         elevation: 0,
         backgroundColor: Colors.white,

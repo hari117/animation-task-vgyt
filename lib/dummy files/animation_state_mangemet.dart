@@ -11,10 +11,8 @@ class AnimationStateManagement extends StatesRebuilder {
   stateAnimationPage(double w, double h) {
     normalWidth = w;
     normalHeight = h;
+    normalCurve=Curves.easeInOut;
     rebuildStates();
   }
 
-  endAnimationPage() {
-    rebuildStates();
-  }
 }
